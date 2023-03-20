@@ -126,17 +126,38 @@ handle_request :: (request: LSP_Request_Message, raw_request: string) {
 
             log("Entry file: %/%", program_cache.working_directory, program_cache.entry);
 
+            if !program_cache.entry_file {
+              program_cache.entry_file = find_entry_file(program_cache.working_directory);
+            }
 
             {
                 success, error_details := run_metaprogram_analysis();
                 if !success {
-                    lsp_respond_with_error(body.id, .PARSE_ERROR, "Could not run JLS metaprogram", error_details);
-                    return;
+                    // We might not have found an entry_file, or found the wrong
+                    // one. Don't fail the entire initialize for this, as we may
+                    // receive a more correct valu on the didChangeConfiguration
+                    // notification.
+                    // TODO: Can we request configuration from the client with
+                    // getConfiguration at this point? Ideally, that's what we'd
+                    // do.
+                    log_error("Could not run Jails metaprogram; you may need to specify entry_file in the langauge server settings", error_details);
                 }
             }
 
             to_send: LSP_Result_Initialize;
             lsp_respond(body.id, to_send);
+
+        case "workspace/didChangeConfiguration";
+            success, body := json_parse_string(raw_request, LSP_Did_Change_Configuration);
+            if !success || !body.params.settings.entry_file {
+              log_error( "Invalid configuration ignored" );
+              return;
+            }
+
+            program_cache.entry_file = <<body.params.settings.entry_file;
+            run_metaprogram_analysis();
+            // notification; does not expect a response
+
 
         case "textDocument/definition";
             success, body := json_parse_string(raw_request, LSP_Request_Message_Definition);

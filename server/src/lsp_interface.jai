@@ -490,6 +490,15 @@ LSP_Result_Initialize :: struct {
     };
 }
 
+LSP_Did_Change_Configuration :: struct {
+  using request: LSP_Notification_Message;
+  params: struct {
+    settings: struct {
+      entry_file: *string;
+    }
+  }
+};
+
 LSP_Request_Message_Definition :: struct {
     using request: LSP_Request_Message;
     params: LSP_Text_Document_Position;

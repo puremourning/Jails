@@ -12,7 +12,7 @@
     make_directory_if_it_does_not_exist("./bin/");
 
     root_options := get_build_options();
-	import_path: [..] string;
+    import_path: [..] string;
     array_add(*import_path, .. root_options.import_path);
     array_add(*import_path, "./modules");
 

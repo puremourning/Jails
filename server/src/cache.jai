@@ -6,6 +6,7 @@ Program :: struct {
     import_path: []string;
     entry: string;
     working_directory: string;
+    entry_file: string;
 
     files: [..]Source_File;
     modules: [..]Module;
