@@ -14,7 +14,7 @@ main :: () {
     name = basename,
   };
 
-  init := LSP_Request_Message_Initialize. {
+  init_message := LSP_Request_Message_Initialize. {
     params=  .{
       clientInfo = .{
         name = "JailsTest",

@@ -13,7 +13,7 @@
             "local_modules": "/modules"
         },
         {
-            "entry": "/tests/first.jai",
+            "entry": "/tests/test_client.jai",
             "local_modules": "/modules"
         }
     ]

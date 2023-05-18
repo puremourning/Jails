@@ -78,7 +78,7 @@
         options.import_path = import_path;
         set_build_options(options, w);
 
-        add_build_file("./tests/first.jai", w);
+        add_build_file("./tests/test_client.jai", w);
     }
 
     // When we provide -vscode argument automatically launch vscode with our extension installed.
