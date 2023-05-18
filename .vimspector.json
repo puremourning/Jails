@@ -1,0 +1,13 @@
+{
+  "configurations": {
+    "Attach": {
+      "adapter": "CodeLLDB",
+      "configuration": {
+        "request": "attach",
+        "program": "${workspaceRoot}/bin/jails",
+        "pid": "${PickProcess(\"jails\")}",
+        "expressions": "native"
+      }
+    }
+  }
+}
