@@ -11,6 +11,10 @@
         {
             "entry": "/metaprogram_modules/jails.jai",
             "local_modules": "/modules"
+        },
+        {
+            "entry": "/tests/first.jai",
+            "local_modules": "/modules"
         }
     ]
 }

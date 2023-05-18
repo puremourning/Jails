@@ -67,6 +67,20 @@
         if tracy && tracy.shutdown tracy.shutdown(tracy);
     }
 
+    // Tests 
+    {
+        w := compiler_create_workspace("Tester");
+
+        options := get_build_options(w);
+        copy_commonly_propagated_fields(get_build_options(), *options);
+        options.output_executable_name = "jails_tester";
+        options.output_path = "./bin";
+        options.import_path = import_path;
+        set_build_options(options, w);
+
+        add_build_file("./tests/first.jai", w);
+    }
+
     // When we provide -vscode argument automatically launch vscode with our extension installed.
     if launch_vscode {
         vscode_extension_directory := join(get_working_directory(), "/vscode_extension");
