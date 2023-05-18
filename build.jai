@@ -67,7 +67,7 @@
         if tracy && tracy.shutdown tracy.shutdown(tracy);
     }
 
-    // Tests 
+    // Tests
     {
         w := compiler_create_workspace("Tester");
 

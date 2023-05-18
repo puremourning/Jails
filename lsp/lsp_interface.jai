@@ -1,3 +1,4 @@
+#import "jason";
 
 /*
     --- Base Protocol JSON Structures ---

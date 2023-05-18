@@ -347,6 +347,8 @@ find_current_jai_path :: () -> string {
 
 #load "../shared/binary_serialization.jai";
 #load "../shared/shared.jai";
+#load "../lsp/lsp_interface.jai";
+#load "../lsp/rpc.jai";
 
 #import "Basic";
 #import "Command_Line";
@@ -362,8 +364,6 @@ find_current_jai_path :: () -> string {
 #import "Reflection";
 #import "File_Watcher";
 
-#load "rpc.jai";
-#load "lsp_interface.jai";
 #load "program.jai";
 #load "modified_files.jai";
 #load "cursor_context.jai";
