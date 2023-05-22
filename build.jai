@@ -5,7 +5,7 @@
 
     root_options := get_build_options();
     args := root_options.compile_time_command_line;
-	import_path: [..] string;
+    import_path: [..] string;
     array_add(*import_path, .. root_options.import_path);
     array_add(*import_path, "./modules");
 

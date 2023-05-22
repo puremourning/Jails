@@ -6,6 +6,10 @@
         "request": "attach",
         "program": "${workspaceRoot}/bin/jails",
         "pid": "${PickProcess(\"jails\")}",
+        "initCommands": [
+          "command script import /Users/ben/Development/jai/lldb/jaitype.py"
+
+        ],
         "expressions": "native"
       }
     }

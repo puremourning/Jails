@@ -426,6 +426,7 @@ listen_to_metaprogram :: (thread: *Thread) -> s64 {
 
     #if OS != .WINDOWS {
         POSIX :: #import "POSIX";
+        // @FixMe: Shouldn't this be a c-string ?
         POSIX.shm_unlink(channel_name.data);
     }
 
